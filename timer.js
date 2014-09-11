@@ -40,10 +40,11 @@ function calculate() {
 	var d2 = new Date();
 	d2.setMinutes(parseInt(out.slice(2)));
 	d2.setHours(parseInt(out.slice(0,2)));
-	var minutes = parseInt((d2-time)/(60*1000));
 	var hours = parseInt((d2-time)/(3600*1000));
+	var minutes = parseInt((d2-time)/(60*1000));
+	minutes = minutes - (hours*60);
 	if (minutes.toString().length == 1) {minutes = "0" + minutes;}
 	if (hours.toString().length == 1) {hours = "0" + hours;}
 	document.getElementById('time').innerHTML = "<h1 id='time'>"+hours+":"+minutes+"</h1>";
-	//var t = setTimeout(function(){calculate()},500);
+	var t = setTimeout(function(){calculate()},500);
 }
