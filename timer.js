@@ -4,6 +4,8 @@ function calculate() {
 	var h=time.getHours();
 	var m=time.getMinutes();
 	var s=time.getSeconds();
+	if (m.toString().length == 1) {m = "0" + m;}
+	if (h.toString().length == 1) {h = "0" + h;}
 
 	var cday=time.getDay();
 	var ctime = h.toString() + m.toString();
