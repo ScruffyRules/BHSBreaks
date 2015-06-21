@@ -25,7 +25,7 @@ function calculate() {
 		}
 	}
 
-	if((h < 9) || (h > 15)){//Schools over
+	if (h > 15) {//Schools over
 		out = "Go home!";
 	} else if(cday == 6 || cday == 0){
 		out = "Umm, weekend!";
@@ -47,6 +47,10 @@ function calculate() {
 	minutes = minutes - (hours*60);
 	if (minutes.toString().length == 1) {minutes = "0" + minutes;}
 	if (hours.toString().length == 1) {hours = "0" + hours;}
-	document.getElementById('time').innerHTML = "<h1 id='time'>"+hours+":"+minutes+"</h1>";
+	if (hours == hours && minutes == minutes) {//Javascript for: if (hours != NaN && minutes != NaN) {
+		document.getElementById('time').innerHTML = "<h1 id='time'>"+hours+":"+minutes+"</h1>";
+	} else {
+		document.getElementById('time').innerHTML = "<h1 id='time'>"+out+"</h1>";
+	}
 	var t = setTimeout(function(){calculate()},500);
 }
